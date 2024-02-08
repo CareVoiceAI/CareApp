@@ -16,6 +16,15 @@ memory.add_doctor_message('''Introduction session and intial information .
                           End the conversation with thank you when enough 10-15 questions are asked.''')
 memory.add_assistant_message('''Can you please state your name and age for the record?''' )
 # Define the default route to return the index.html file
+
+
+
+@app.route("/")
+def home():
+    return render_template("index.html",)
+
+
+
 @app.route("/assistant")
 def assistant():
     memory.print_chat()
@@ -36,12 +45,18 @@ def api():
     # print(message)
     
     chats=memory.add_patient_message(message)
-    memory.print_chat()
+    # memory.print_chat()
     resp=get_response(chats)
     # print(resp)
     chats=memory.add_assistant_message(resp['content'])
     return resp
     
+@app.route("/summary", methods=["GET"])
+def summary():
+    chats=memory.get_chats()
+    summary=get_summary(chats)
+
+    return summary
 
 if __name__=='__main__':
     app.run()

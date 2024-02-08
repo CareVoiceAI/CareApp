@@ -49,10 +49,11 @@ def get_summary(chats):
     frequency_penalty=0,
     presence_penalty=0
     )
+
     print(response.choices[0].message.content)
-    return response.choices[0].message.content
+    response_dict={'content':response.choices[0].message.content}
     if response!=None:
-        return response.choices[0].message.content
+        return response_dict
 
     else :
         return 'Failed to Generate response!'
