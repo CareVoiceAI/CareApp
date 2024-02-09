@@ -55,8 +55,7 @@ Before you can start using the CareApp, ensure you've completed the following:
 1. Verify that Python is installed on your system.
 2. Open a terminal or command prompt and change to the directory containing the CareApp.
 3. Install the application's dependencies by running `pip install -r requirements.txt`.
-4. Locate the `app.py` file and insert your OpenAI API key into the designated area. If you don't have an API key yet, 
-   you can get one by registering for OpenAI's API service.
+4. Locate the `app.py` file .
 5. Begin the application by executing `python3 app.py` on Linux/Mac or `python app.py` on Windows.
 
 ## Application Demonstration
