@@ -36,6 +36,26 @@ class Memory:
         self.chats.append(new_message)
         return self.chats
     
+    def add_doctor_prescription_message(self, message: str) -> list[dict]:
+        message_prefix_suffix=f'''<DOCTOR> {message} This is the prescription to be 
+        administered by the patient . Motivate the patient to take the prescription. ''' 
+        new_message = {
+            "role": "user",
+            "content": message_prefix_suffix
+        }
+        self.chats.append(new_message)
+        return self.chats
+    
+    def add_doctor_suggestion_message(self, message: str) -> list[dict]:
+        message_prefix_suffix=f'''<DOCTOR> {message} This are the suggestions to be given to
+        patient . Motivate the patient to follow the suggestions. ''' 
+        new_message = {
+            "role": "user",
+            "content": message_prefix_suffix
+        }
+        self.chats.append(new_message)
+        return self.chats
+
     def add_assistant_message(self, message: str) -> list[dict]:
         new_message = {
             "role": "assistant",
@@ -50,6 +70,9 @@ class Memory:
 
     def get_chats(self):
         return self.chats
+    
+    def reset_memory(self):
+        self.chats = []
 
 
 

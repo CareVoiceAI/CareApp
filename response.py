@@ -34,9 +34,9 @@ def get_response(chats):
 
 def get_summary(chats):
     text=parse_dialogue(chats)
-    print(text)
+    # print(text)
     response = client.chat.completions.create(
-    model="gpt-4-1106-preview",
+    model="gpt-3.5-turbo-0125",
     messages=[
         {
         "role": "user",
@@ -50,7 +50,7 @@ def get_summary(chats):
     presence_penalty=0
     )
 
-    print(response.choices[0].message.content)
+    # print(response.choices[0].message.content)
     response_dict={'content':response.choices[0].message.content}
     if response!=None:
         return response_dict

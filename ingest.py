@@ -5,7 +5,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 vector_store_address: str = "https://carevoice.search.windows.net"
 vector_store_password: str = "9NH4jxlqsNMddpusYXO5mlndrJiwn9LMnBqt1EDrOlAzSeDqeCQH"
-DATA_PATH = 'Llama2-Medical-Chatbot-main/data/'
+DATA_PATH = '/home/ubuntu/Desktop/CareVoice_projects/CareAPP/data/'
 DB_AzureSearch_PATH = 'vectorstore/db_azuresearch'
 
 # Create vector database

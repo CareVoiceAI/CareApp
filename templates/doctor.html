@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Doctor's Dashboard</title>
+    <title>CARE App</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -34,14 +34,14 @@
       <a class="nav-link" href="/">Home</a>
         <a class="nav-link active" aria-current="page" href="/doctor">Doctor</a>
         <a class="nav-link" href="/assistant">Assistant</a>
-        <a class="nav-link" href="#">Know More ... </a>
+        <a class="nav-link" href="/knowmorepage">Know More ... </a>
     </nav>
     <br/>
     <h1 style="color:white">Doctor's Dashboard</h1>
     <nav class="nav nav-pills nav-fill">
-        <a class="nav-link" href="#">Get more info</a>
-        <a class="nav-link" href="#">Prescription </a>
-        <a class="nav-link " href="#">Suggestion</a>
+        <a class="nav-link" href="/moreinfopage">Get more info</a>
+        <a class="nav-link" href="/prescriptionpage">Prescription </a>
+        <a class="nav-link " href="/suggestionpage">Suggestion</a>
     </nav>
 </div>
 <div class="container mt-5">
@@ -62,10 +62,13 @@
 
 <script>
     function receiveSummary(summary) {
-        var summaryText = document.getElementById("summaryText");
-        summaryText.innerText = summary;
-        summaryText.style.display = 'block'; // Make the summary text visible
-    }
+    var summaryText = document.getElementById("summaryText");
+    summaryText.innerText = summary;
+    summaryText.style.display = 'block'; // Make the summary text visible
+
+    // Save the summary to session storage
+    sessionStorage.setItem('doctorSummary', summary);
+     }
 
     function clearSummary() {
         var summaryText = document.getElementById("summaryText");
@@ -86,6 +89,13 @@
                 console.error('There has been a problem with your fetch operation:', error);
             });
     });
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+    var savedSummary = sessionStorage.getItem('doctorSummary');
+    if (savedSummary) {
+        receiveSummary(savedSummary);
+    }
+});
 </script>
 </body>
 </html>
